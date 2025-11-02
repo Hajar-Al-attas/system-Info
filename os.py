@@ -4,7 +4,7 @@ import string
 
 nameOS = platform.system()
 
-def disks():
+def drive():
     if nameOS == "Windows":
         return [f"{d}:" for d in string.ascii_uppercase if os.path.exists(f"{d}:")]
     elif nameOS == "Linux" :
@@ -22,14 +22,14 @@ def root_path():
 def system_info():
 
     system_directory = root_path()
-    available_drives = disks()
+    drives = drive()
 
     print("Operating System Information:")
     print(f"OS Name: {nameOS}")
     print(f"Username: {os.getlogin()}")
     print(f"System Directory: {system_directory}")
     print(f"CPU Count: {os.cpu_count()}")
-    print(f"Available Drives : {available_drives}")
+    print(f"Drives : {drives}")
 
 
 system_info()
