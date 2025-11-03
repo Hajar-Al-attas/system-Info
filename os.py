@@ -6,7 +6,7 @@ nameOS = platform.system()
 
 def drive():
     if nameOS == "Windows":
-        return [f"{d}:" for d in string.ascii_uppercase if os.path.exists(f"{d}:")]
+        return os.listdrives()
     elif nameOS == "Linux" :
         return os.popen("lsblk -d -n -o NAME").read().splitlines()
     elif nameOS == "Darwin":
@@ -33,3 +33,4 @@ def system_info():
 
 
 system_info()
+
